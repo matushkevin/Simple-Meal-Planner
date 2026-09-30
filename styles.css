@@ -1,0 +1,210 @@
+/* --- Global Resets & Variables --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --primary-color: #2ec4b6;
+    --primary-hover: #20a498;
+    --text-main: #333333;
+    --text-muted: #777777;
+    --danger-color: #e71d36;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Header Section --- */
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.app-header h1 {
+    color: var(--text-main);
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.app-header p {
+    color: var(--text-muted);
+}
+
+/* --- Responsive Layout Wrapper --- */
+.planner-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- Left Column: Control Panel Form --- */
+.control-panel {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    height: fit-content;
+}
+
+.control-panel h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 100px;
+    padding-bottom: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.form-group select,
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    border-color: var(--primary-color);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Summary Box */
+.summary-box {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.summary-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.summary-box p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.btn-clear {
+    width: 100%;
+    background-color: transparent;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    padding: 8px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-clear:hover {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* --- Right Column: The Dashboard Calendar Grid --- */
+.grid-panel {
+    width: 100%;
+}
+
+.weekly-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
+
+.day-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary-color);
+}
+
+.day-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+}
+
+.meal-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.meal-slot {
+    background-color: var(--bg-color);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border-left: 3px solid #cbd5e1;
+}
+
+.slot-label {
+    font-weight: 600;
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.meal-text {
+    word-break: break-word;
+}
+
+/* Responsive adjustment for small screens / mobile tablets */
+@media (max-width: 768px) {
+    .planner-container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Weekly Meal Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <h1>Weekly Meal Planner</h1>
+        <p>Plan your meals, stay healthy, and track your metrics.</p>
+    </header>
+
+    <main class="planner-container">
+        <!-- LEFT COLUMN: Input Control Panel -->
+        <section class="control-panel">
+            <h2>Add a Meal</h2>
+            <form id="meal-form">
+                <div class="form-group">
+                    <label for="day-select">Select Day</label>
+                    <select id="day-select">
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="meal-type">Meal Type</label>
+                    <select id="meal-type">
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="meal-name">Meal Name</label>
+                    <input type="text" id="meal-name" placeholder="e.g Avocado Toast, Grilled Chicken" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="meal-calories">Calories (Optional)</label>
+                    <input type="number" id="meal-calories" placeholder="e.g 450">
+                </div>
+
+                <button type="submit" class="btn-submit">Add to Plan</button>
+            </form>
+
+            <div class="summary-box">
+                <h3>Weekly Overview</h3>
+                <p>Total Estimated Calories: <strong id="total-calories">0</strong> kcal</p>
+                <button id="clear-plan" class="btn-clear">Clear Whole Week</button>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: The Interactive Grid Display -->
+        <section class="grid-panel">
+            <div class="weekly-grid">
+                
+                <!-- Card template for a Single Day (Repeated for Monday) -->
+                <div class="day-card" id="day-monday">
+                    <h3>Monday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot" data-meal="breakfast">
+                            <span class="slot-label">Breakfast:</span>
+                            <span class="meal-text">Not planned yet</span>
+                        </div>
+                        <div class="meal-slot" data-meal="lunch">
+                            <span class="slot-label">Lunch:</span>
+                            <span class="meal-text">Not planned yet</span>
+                        </div>
+                        <div class="meal-slot" data-meal="dinner">
+                            <span class="slot-label">Dinner:</span>
+                            <span class="meal-text">Not planned yet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuesday Card -->
+                <div class="day-card" id="day-tuesday">
+                    <h3>Tuesday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot" data-meal="breakfast"><span class="slot-label">Breakfast:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="lunch"><span class="slot-label">Lunch:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="dinner"><span class="slot-label">Dinner:</span> <span class="meal-text">Not planned yet</span></div>
+                    </div>
+                </div>
+
+                <!-- Wednesday Card -->
+                <div class="day-card" id="day-wednesday">
+                    <h3>Wednesday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot" data-meal="breakfast"><span class="slot-label">Breakfast:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="lunch"><span class="slot-label">Lunch:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="dinner"><span class="slot-label">Dinner:</span> <span class="meal-text">Not planned yet</span></div>
+                    </div>
+                </div>
+
+                <!-- Thursday Card -->
+                <div class="day-card" id="day-thursday">
+                    <h3>Thursday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot" data-meal="breakfast"><span class="slot-label">Breakfast:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="lunch"><span class="slot-label">Lunch:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="dinner"><span class="slot-label">Dinner:</span> <span class="meal-text">Not planned yet</span></div>
+                    </div>
+                </div>
+
+                <!-- Friday Card -->
+                <div class="day-card" id="day-friday">
+                    <h3>Friday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot" data-meal="breakfast"><span class="slot-label">Breakfast:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="lunch"><span class="slot-label">Lunch:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="dinner"><span class="slot-label">Dinner:</span> <span class="meal-text">Not planned yet</span></div>
+                    </div>
+                </div>
+
+                <!-- Saturday Card -->
+                <div class="day-card" id="day-saturday">
+                    <h3>Saturday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot" data-meal="breakfast"><span class="slot-label">Breakfast:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="lunch"><span class="slot-label">Lunch:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="dinner"><span class="slot-label">Dinner:</span> <span class="meal-text">Not planned yet</span></div>
+                    </div>
+                </div>
+
+                <!-- Sunday Card -->
+                <div class="day-card" id="day-sunday">
+                    <h3>Sunday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot" data-meal="breakfast"><span class="slot-label">Breakfast:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="lunch"><span class="slot-label">Lunch:</span> <span class="meal-text">Not planned yet</span></div>
+                        <div class="meal-slot" data-meal="dinner"><span class="slot-label">Dinner:</span> <span class="meal-text">Not planned yet</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
